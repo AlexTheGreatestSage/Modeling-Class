@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
-//Name: lampRemodel.ma
-//Last modified: Sat, Feb 10, 2024 11:11:22 PM
+//Name: lampUV.ma
+//Last modified: Sat, Feb 10, 2024 11:16:36 PM
 //Codeset: 1252
 requires maya "2024";
 requires "stereoCamera" "10.0";
@@ -12,7 +12,7 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22000)";
-fileInfo "UUID" "022EA73E-4640-FAB7-03D7-BB9192D17FE8";
+fileInfo "UUID" "3BBF7E75-48A1-9BBA-3722-BCA27F62C22E";
 createNode transform -s -n "persp";
 	rename -uid "66E3EE73-4441-EF65-FE4A-F0B669E44048";
 	setAttr ".v" no;
@@ -782,20 +782,20 @@ createNode mesh -n "LampShape" -p "Lamp";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "56668CDD-498E-C73F-FFE4-639CCD4F2CEA";
+	rename -uid "FC916D35-46D0-30A1-BE74-E58259E59782";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "926B69DA-444C-9854-1D89-3881889F93AB";
+	rename -uid "E9FBD82E-42AB-10DA-DE0F-898CE40862E1";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "DE97D008-4E56-DB7B-47B3-1DAF2A85F62C";
+	rename -uid "52F6ECCB-4E08-94AF-4C65-1AA4E45C187B";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "C2428510-499F-7AD9-41F5-31AEBB931FB6";
+	rename -uid "17014233-4C7C-800A-639A-A8BE390F2350";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "96968FF0-4B66-E7B3-6177-689315BCE91B";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "287A3C0D-4981-C739-330F-DC8679705DC5";
+	rename -uid "36B933D5-4285-FE2C-5A1B-9A8C5BA3FCEC";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "78C990B9-49F7-3E28-4936-0EBD3CAF8CD5";
 	setAttr ".g" yes;
@@ -864,7 +864,7 @@ createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "0CC7ECD3-47E3-B4C8-5E2E-51BDE7E57811";
+	rename -uid "63765B9F-4982-410A-E050-ECB0AA0D2A12";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -909,8 +909,6 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -923,4 +921,4 @@ connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
 connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "LampShape.iog" ":initialShadingGroup.dsm" -na;
-// End of lampRemodel.ma
+// End of lampUV.ma
